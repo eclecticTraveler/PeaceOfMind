@@ -9,9 +9,9 @@ namespace PeaceOfMind.Service.Repositories
 {
     public class SurveyRepository : ISurveyRepository
     {
-        public IEnumerable<IQuestion> GetSurveyQuestions(int surveyId)
+        public IEnumerable<IQuestion> GetSurveyQuestions(int surveyId, IEnumerable<IQuestion> questions)
         {
-            List<Question> questions = new List<Question>();
+            var questionList = questions.ToList();
             Question q1 = new Question
             {
                 WordedOptions = new List<QuestionOption>
@@ -22,9 +22,9 @@ namespace PeaceOfMind.Service.Repositories
                      new QuestionOption() { Option = "Estou tão triste ou infeliz que não consigo suportar", OptionScaleValue = 3 }
                 }
             };
-            questions.Add(q1);
+            questionList.Add(q1);
 
-            return questions;
+            return questionList;
         }
 
         public IEnumerable<ISurvey> GetAvailableDistinctSurveys()
@@ -36,6 +36,16 @@ namespace PeaceOfMind.Service.Repositories
                 new AnxietySurvey()
             };
             return surveys;
+        }
+
+        public void SaveSurveyResult(ISurveyResult surveyResult)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ISurveyResult> GetSurveyResultsPerPeriod(DateTime minDate, DateTime maxDate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -57,5 +57,9 @@ namespace PeaceOfMind.Service.Factory
         {
             return new List<SurveyDto>();
         }
+        public static IEnumerable<IQuestion> CreateQuestionList()
+        {
+            return new List<Question>();
+        }
     }
 }

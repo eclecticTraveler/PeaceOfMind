@@ -43,9 +43,9 @@ namespace PeaceOfMind.Service.Models
             }
             return totalSurveyPoints;
         }
-        public IEnumerable<IQuestion> GetSurveyQuestions(int surveyId)
+        public IEnumerable<IQuestion> GetSurveyQuestions(int surveyId, IEnumerable<IQuestion> questions)
         {
-            return _repository.GetSurveyQuestions(surveyId);
+            return _repository.GetSurveyQuestions(surveyId, questions);
         }
         public bool VerifySurveyCompletion(IEnumerable<IQuestion> questions)
         {

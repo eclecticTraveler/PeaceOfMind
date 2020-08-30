@@ -16,7 +16,7 @@ namespace PeaceOfMind.Service.Models
         int UserTotalPoints { get; }
         bool VerifySurveyCompletion(IEnumerable<IQuestion> questions);
         int GetSurveyPoints(IEnumerable<IAnswer> answers);
-        IEnumerable<IQuestion> GetSurveyQuestions(int surveyId);
+        IEnumerable<IQuestion> GetSurveyQuestions(int surveyId, IEnumerable<IQuestion> questions);
         IEnumerable<IAnswer> TransformAnswersDtoToModel(IEnumerable<IAnswerDto> answersDtos);
         IEnumerable<IAnswerDto> TransformAnswersModelToDto(IEnumerable<IAnswer> answers);
         IEnumerable<IQuestion> TransformQuestionsDtoToModel(IEnumerable<IQuestionDto> questionsDto);

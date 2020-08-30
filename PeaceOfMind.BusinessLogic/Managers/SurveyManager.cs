@@ -42,11 +42,12 @@ namespace PeaceOfMind.Service.Managers
 
             var survey = ServiceFactory.GetSurveySpecific(surveyId, ServiceFactory.CreateMapper(), ServiceFactory.CreateSurveyRepo());
             // TODO : handle the questions intantiated list with IoC same up in results
-            var surveyQuestions = survey.GetSurveyQuestions(surveyId);
+            var surveyQuestions = survey.GetSurveyQuestions(surveyId, ServiceFactory.CreateQuestionList());
             return survey.TransformQuestionsModelToDto(surveyQuestions);
         }
         private IEnumerable<ISurveyDto> TransformSurveysToDtos(IEnumerable<ISurvey> surveys)
         {
+            // TODO see if this is something that somehow could be done with AutoMapper
             var surveyListDto = ServiceFactory.CreateSurveyListDto().ToList();
             foreach (var survey in surveys)
             {
