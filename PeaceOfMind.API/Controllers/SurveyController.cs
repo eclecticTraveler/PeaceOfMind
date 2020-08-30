@@ -17,47 +17,73 @@ namespace PeaceOfMind.API.Controllers
         // GET api/v1/surveys
         [HttpGet]
         public IActionResult Get()
-        {     
-            ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
-            var surveys = surveyHandler.GetAvailableSurveys();
-            //var ee = JsonConvert.SerializeObject(surveys);
-            return Ok(surveys);
+        {
+            try
+            {
+                ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
+                var surveys = surveyHandler.GetAvailableSurveys();
+                return Ok(surveys);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         // GET api/v1/surveys/
         [HttpGet("{surveyId}")]
         public IActionResult Get(int surveyId)
         {
-            // Here we are sending back the specific question within a survey
-            return Ok(surveyId);
+            try
+            {
+                // TODO: What are you going to send back? Maybe info about that survey
+                return Ok(surveyId);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         // GET api/v1/surveys/1/questions
         [HttpGet("{surveyId}/questions")]
         public IActionResult GetQuestions(int surveyId)
         {
-            ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
-            var surveyQuestions = surveyHandler.GetSurveyQuestions(surveyId);
-            
-            if (surveyQuestions == null)
+            try
             {
-                return NotFound();
+                ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
+                var surveyQuestions = surveyHandler.GetSurveyQuestions(surveyId);
+
+                if (surveyQuestions == null)
+                {
+                    return NotFound(surveyId);
+                }
+                return Ok(surveyQuestions);
             }
-            return Ok(surveyQuestions);
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         // POST api/v1/surveys/1/answers
         [HttpPost("{surveyId}/answers")]
         public IActionResult Post(int surveyId, [FromBody] IEnumerable<AnswerDto> answers)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest();
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+                ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
+                var result = surveyHandler.ProcessSurveyAnswers(surveyId, answers);
+                return Created(nameof(answers), result);
             }
-
-            ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
-            var result = surveyHandler.ProcessSurveyAnswers(surveyId, answers);
-            return CreatedAtAction(nameof(answers), answers);
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         //[HttpGet("{surveyId}/results")]

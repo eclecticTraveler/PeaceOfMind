@@ -8,7 +8,7 @@ namespace PeaceOfMind.API.Handlers
     {
         IEnumerable<ISurveyDto> GetAvailableSurveys();
         IEnumerable<IQuestionDto> GetSurveyQuestions(int surveyId);
-        SurveyResultDto ProcessSurveyAnswers(int surveyId, IEnumerable<IAnswerDto> answerDtos);
+        ISurveyResultDto ProcessSurveyAnswers(int surveyId, IEnumerable<IAnswerDto> answerDtos);
 
     }
 }

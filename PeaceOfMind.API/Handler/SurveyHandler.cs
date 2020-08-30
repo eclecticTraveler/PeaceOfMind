@@ -31,11 +31,10 @@ namespace PeaceOfMind.API.Handlers
             return surveys;
         }
 
-        public SurveyResultDto ProcessSurveyAnswers(int surveyId, IEnumerable<IAnswerDto> answerDtos)
+        public ISurveyResultDto ProcessSurveyAnswers(int surveyId, IEnumerable<IAnswerDto> answerDtos)
         {
             ISurveyManager manager = ApiFactory.CreateSurveyManager();
-            manager.ProcessSurveyAnswers(surveyId, answerDtos);
-            throw new NotImplementedException();
+            return manager.ProcessSurveyAnswers(surveyId, answerDtos);         
         }
     }
 }

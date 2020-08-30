@@ -1,4 +1,5 @@
-﻿using PeaceOfMind.Service.Models;
+﻿using PeaceOfMind.Service.Factory;
+using PeaceOfMind.Service.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PeaceOfMind.Service.Repositories
 {
-    public class SurveyRepository
+    public class SurveyRepository : ISurveyRepository
     {
-        public IEnumerable<Question> GetSurveyQuestions(int surveyId)
+        public IEnumerable<IQuestion> GetSurveyQuestions(int surveyId)
         {
             List<Question> questions = new List<Question>();
             Question q1 = new Question
@@ -26,22 +27,15 @@ namespace PeaceOfMind.Service.Repositories
             return questions;
         }
 
-        public IEnumerable<ISurveyWrapper> GetAvailableDistinctSurveys()
+        public IEnumerable<ISurvey> GetAvailableDistinctSurveys()
         {
-            //return new List<Survey>
-            //{
-            //    new Survey
-            //    {
-            //     SurveyId = 1,
-            //     SurveyName = "Anxiety"
-            //    },
-            //    new Survey
-            //    {
-            //     SurveyId = 2,
-            //     SurveyName = "Depression"
-            //    }
-            //};
-            return new List<ISurveyWrapper>();
+            //TODO GET SURVEYS AVAILABLE FROM DB
+            var surveys = new List<ISurvey>
+            {
+                new DepressionSurvey(),
+                new AnxietySurvey()
+            };
+            return surveys;
         }
     }
 }

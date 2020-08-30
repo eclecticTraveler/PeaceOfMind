@@ -1,6 +1,5 @@
 ﻿using DataMovement.Dtos;
 using PeaceOfMind.DataMovement.Dtos;
-using PeaceOfMind.Service.BusinessOfLogic;
 using PeaceOfMind.Service.Factory;
 using PeaceOfMind.Service.Models;
 using PeaceOfMind.Service.Repositories;
@@ -15,26 +14,9 @@ namespace PeaceOfMind.Service.Managers
     {
         public IEnumerable<ISurveyDto> FetchAvailableSurveys()
         {
-            List<ISurveyDto> surveysDtos = new List<ISurveyDto>();
-            // Pull from Database
-            SurveyRepository repo = new SurveyRepository();
-            var surveys = repo.GetAvailableDistinctSurveys();
-
-            // TODO: use mapper library
-            foreach (var survey in surveys)
-            {
-                surveysDtos.Add(
-                                        //new SurveyDto
-                                        //{
-                                        //    SurveyId = survey.SurveyId,
-                                        //    SurveyName = survey.SurveyName
-                                        //}
-                                        new SurveyDto()
-                    );
-            }
-
-            //Return
-            return surveysDtos;
+            var surveyRepo = ServiceFactory.CreateSurveyRepo();
+            var surveys = surveyRepo.GetAvailableDistinctSurveys();
+            return TransformSurveysToDtos(surveys);         
         }
 
         public ISurveyResultDto ProcessSurveyAnswers(int surveyId, IEnumerable<IAnswerDto> answerDtos)
@@ -42,44 +24,54 @@ namespace PeaceOfMind.Service.Managers
             // Here is where threads are nice to save to the DB answers while processing takes place
             if (answerDtos == null)
             {
-
+                throw new System.ArgumentException("answers object is null");
             }
-
-            //
-            var survey = ServiceFactory.GetSurveySpecific(surveyId, answerDtos);
-
-            SurveyProcessor processor = new SurveyProcessor();
-            SurveyResult surveyResult = processor.GetSurveyResults(surveyId, answerDtos);
-            // Validate
-
+            var survey = ServiceFactory.GetSurveySpecific(surveyId, ServiceFactory.CreateMapper(), ServiceFactory.CreateSurveyRepo());
+            var surveyAnswers = survey.TransformAnswersDtoToModel(answerDtos);
+            var surveyResult = survey.GetSurveyResults(ServiceFactory.CreateSurveyResult(), surveyAnswers);
             //Save in DB only if authenticated
-
-            //Map
-
-            // Return
-            throw new NotImplementedException();
+            return survey.TransformSurveyResultModelToDto(surveyResult);
         }
 
         public IEnumerable<IQuestionDto> FetchSurveyQuestions(int surveyId)
         {
-            List<QuestionDto> questionsDtos = new List<QuestionDto>();
-            // Pull from Database
-            SurveyRepository repo = new SurveyRepository();
-            var questions = repo.GetSurveyQuestions(surveyId);
-
-            // TODO: use mapper library
-            foreach (var question in questions)
+            if (surveyId < 0)
             {
-                questionsDtos.Add(
-                    new QuestionDto
-                    {
-                        QuestionNumber = question.QuestionNumber,
-                        WordedQuestion = question.WordedQuestion,
-                        WordedOptions = question.CovertQuestionOptionToDto()
-                    }
-                    );
+                throw new System.ArgumentException("survey Id is not valid");
             }
-            return questionsDtos;
+
+            var survey = ServiceFactory.GetSurveySpecific(surveyId, ServiceFactory.CreateMapper(), ServiceFactory.CreateSurveyRepo());
+            // TODO : handle the questions intantiated list with IoC same up in results
+            var surveyQuestions = survey.GetSurveyQuestions(surveyId);
+            return survey.TransformQuestionsModelToDto(surveyQuestions);
+        }
+        private IEnumerable<ISurveyDto> TransformSurveysToDtos(IEnumerable<ISurvey> surveys)
+        {
+            var surveyListDto = ServiceFactory.CreateSurveyListDto().ToList();
+            foreach (var survey in surveys)
+            {
+                if (survey is DepressionSurvey depressionSurvey)
+                {
+                    surveyListDto.Add(
+                    new SurveyDto
+                    {
+                        SurveyId = depressionSurvey.SurveyId,
+                        SurveyName = depressionSurvey.SurveyName,
+                        SurveyApiPath = $"/{depressionSurvey.SurveyName}"
+                    });
+                }
+                else if (survey is AnxietySurvey anxietySurvey)
+                {
+                    surveyListDto.Add(
+                    new SurveyDto
+                    {
+                        SurveyId = anxietySurvey.SurveyId,
+                        SurveyName = anxietySurvey.SurveyName,
+                        SurveyApiPath = $"/{anxietySurvey.SurveyId}"
+                    });
+                }
+            }
+            return surveyListDto;
         }
     }
 }
