@@ -6,6 +6,7 @@ C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\PeaceOfMind.API.runtimeconfig.dev.json
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\PeaceOfMind.API.dll
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\PeaceOfMind.API.pdb
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\PeaceOfMind.API.xml
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\DataMovement.dll
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\PeaceOfMind.Service.dll
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\DataMovement.pdb
@@ -19,7 +20,6 @@ C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp2.2\PeaceOfMind.API.RazorTargetAssemblyInfo.cache
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp2.2\PeaceOfMind.API.csproj.CopyComplete
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp2.2\PeaceOfMind.API.dll
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp2.2\PeaceOfMind.API.xml
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp2.2\PeaceOfMind.API.pdb
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp2.2\PeaceOfMind.API.genruntimeconfig.cache
-C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\bin\Debug\netcoreapp2.2\PeaceOfMind.API.xml
-C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.API\obj\Debug\netcoreapp2.2\PeaceOfMind.API.xml
