@@ -1,0 +1,12 @@
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\netstandard2.0\PeaceOfMind.Service.deps.json
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\netstandard2.0\PeaceOfMind.Service.dll
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\netstandard2.0\PeaceOfMind.Service.pdb
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\netstandard2.0\DataMovement.dll
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\netstandard2.0\DataMovement.pdb
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.AssemblyInfo.cs
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.csproj.CopyComplete
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.dll
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.pdb

@@ -1,0 +1,9 @@
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\bin\Debug\netstandard2.0\DataMovement.deps.json
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\bin\Debug\netstandard2.0\DataMovement.dll
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\bin\Debug\netstandard2.0\DataMovement.pdb
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\obj\Debug\netstandard2.0\DataMovement.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\obj\Debug\netstandard2.0\DataMovement.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\obj\Debug\netstandard2.0\DataMovement.AssemblyInfo.cs
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\obj\Debug\netstandard2.0\DataMovement.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\obj\Debug\netstandard2.0\DataMovement.dll
+C:\Users\admin\source\repos\PeaceOfMind.API\DataTransferObjects\obj\Debug\netstandard2.0\DataMovement.pdb
