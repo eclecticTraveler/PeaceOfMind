@@ -4,6 +4,8 @@ C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\netstandard2.0\DataMovement.dll
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\bin\Debug\netstandard2.0\DataMovement.pdb
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.Properties.Resources.resources
+C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.csproj.GenerateResource.cache
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.AssemblyInfoInputs.cache
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.AssemblyInfo.cs
 C:\Users\admin\source\repos\PeaceOfMind.API\PeaceOfMind.BusinessLogic\obj\Debug\netstandard2.0\PeaceOfMind.Service.csproj.CoreCompileInputs.cache

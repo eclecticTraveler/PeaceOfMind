@@ -14,14 +14,19 @@ namespace PeaceOfMind.API.Controllers
     [ApiController]
     public class SurveyController : ControllerBase
     {
+        private ISurveyHandler _surveyHandler;
+
+        public SurveyController(ISurveyHandler surveyHandler)
+        {
+            _surveyHandler = surveyHandler;
+        }
         // GET api/v1/surveys
         [HttpGet]
         public IActionResult Get()
         {
             try
             {
-                ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
-                var surveys = surveyHandler.GetAvailableSurveys();
+                var surveys = _surveyHandler.GetAvailableSurveys();
                 return Ok(surveys);
             }
             catch (System.Exception ex)
@@ -51,8 +56,7 @@ namespace PeaceOfMind.API.Controllers
         {
             try
             {
-                ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
-                var surveyQuestions = surveyHandler.GetSurveyQuestions(surveyId);
+                var surveyQuestions = _surveyHandler.GetSurveyQuestions(surveyId);
 
                 if (surveyQuestions == null)
                 {
@@ -76,8 +80,7 @@ namespace PeaceOfMind.API.Controllers
                 {
                     return BadRequest();
                 }
-                ISurveyHandler surveyHandler = ApiFactory.CreateSurveyHandler();
-                var result = surveyHandler.ProcessSurveyAnswers(surveyId, answers);
+                var result = _surveyHandler.ProcessSurveyAnswers(surveyId, answers);
                 return Created(nameof(answers), result);
             }
             catch (System.Exception ex)

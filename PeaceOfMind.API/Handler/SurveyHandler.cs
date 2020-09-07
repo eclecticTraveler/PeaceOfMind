@@ -12,29 +12,29 @@ namespace PeaceOfMind.API.Handlers
 {
     public class SurveyHandler : ISurveyHandler
     {
-        public SurveyHandler()
+        private ISurveyManager _surveyManager;
+
+        public SurveyHandler(ISurveyManager surveyManager)
         {
+            _surveyManager = surveyManager;
         }
 
         public IEnumerable<IQuestionDto> GetSurveyQuestions(int surveyId)
         {
-            ISurveyManager manager = ApiFactory.CreateSurveyManager();
-            var surveys = manager.FetchSurveyQuestions(surveyId);
+            var surveys = _surveyManager.FetchSurveyQuestions(surveyId);
             return surveys;
         }
 
 
         public IEnumerable<ISurveyDto> GetAvailableSurveys()
         {
-            ISurveyManager manager = ApiFactory.CreateSurveyManager();
-            var surveys = manager.FetchAvailableSurveys();
+            var surveys = _surveyManager.FetchAvailableSurveys();
             return surveys;
         }
 
         public ISurveyResultDto ProcessSurveyAnswers(int surveyId, IEnumerable<IAnswerDto> answerDtos)
         {
-            ISurveyManager manager = ApiFactory.CreateSurveyManager();
-            return manager.ProcessSurveyAnswers(surveyId, answerDtos);         
+            return _surveyManager.ProcessSurveyAnswers(surveyId, answerDtos);         
         }
     }
 }

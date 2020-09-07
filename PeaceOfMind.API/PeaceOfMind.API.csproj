@@ -18,4 +18,8 @@
     <ProjectReference Include="..\PeaceOfMind.BusinessLogic\PeaceOfMind.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Factory\" />
+  </ItemGroup>
+
 </Project>

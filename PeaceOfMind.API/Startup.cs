@@ -8,10 +8,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PeaceOfMind.API.Handlers;
+using PeaceOfMind.Service.Managers;
+using PeaceOfMind.Service.Models;
+using PeaceOfMind.Service.Repositories;
 
 namespace PeaceOfMind.API
 {
@@ -40,6 +45,11 @@ namespace PeaceOfMind.API
                 var filePath = Path.Combine(AppContext.BaseDirectory, fileName);
                 options.IncludeXmlComments(filePath);
             });
+            services.AddDbContextPool<SurveyDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SurveyDBConnection")));
+            services.AddTransient<ISurveyRepository, SurveyRepository>();
+            services.AddTransient<ISurveyHandler, SurveyHandler>();
+            services.AddTransient<ISurveyManager, SurveyManager>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
